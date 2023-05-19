@@ -28,6 +28,7 @@ const newCardExpiry = document.querySelector("#newCardExpiry");
 const newCardPin = document.querySelector("#newCardPin");
 const addCardSection = document.querySelector(".addCardSection");
 const addCardBtn = document.querySelector(".addCard");
+const exitBtn = document.querySelector(".exit");
 const userDataBase = new UserRepository();
 const cardDataBase = new CardRepository();
 const transactionService = new TransactionRepository();
@@ -98,13 +99,12 @@ function init(user) {
   if (cardDataBase.getList().length < 1) {
     for (let card of cardRepo) {
       cardDataBase.add(card);
-      console.log("card", card);
     }
     createCard(cardDataBase);
   }
   console.log(cardDataBase.getList());
   if (cardDataBase.getList().length) {
-    let cards = cardDataBase.getCardsByOwnerPhoneNumber(currentUser.phoneNumber);
+    let cards = cardDataBase.getCardsByOwnerPhoneNumber(user.phoneNumber);
     console.log(cards);
   }
   registrationElm.classList.add("disabled");
@@ -129,8 +129,6 @@ addCardForm.addEventListener("submit", (e) => {
   } catch (err) {
     console.log(err);
   }
-
-  addCardForm.reset();
 });
 function createCard(cardBase) {
   const cardList = [];
@@ -139,14 +137,15 @@ function createCard(cardBase) {
       cardList.push(card);
     }
   }
+  [...cardsContainer.children].forEach((card) => card.remove());
   for (let card of cardList) {
     let cardBox = document.createElement("div");
     cardBox.classList.add("card");
     cardBox.innerHTML = `
       <h2 class="ownerCard">${currentUser.firsName} ${currentUser.lastName}</h2>
       <div class="card-center">
-        <img src="../assets/images/card-item.png" alt="" />
         <div class="card-balance">35000 so'm</div>
+        <img src="../assets/images/card-item.png" alt="" />
       </div>
       <h1 class="cardNumber">${card.cardNumber}</h1>
       <p class="cardExpiry">${card.expiry}</p>
@@ -154,6 +153,10 @@ function createCard(cardBase) {
     cardsContainer.appendChild(cardBox);
   }
 }
+exitBtn.addEventListener("click", () => {
+  wrapper.classList.add("disabled");
+  registrationElm.style.display = "block";
+});
 // function transaction(senderCardNumber: string, receivedCardNumber: string, amount: number) {
 //   const senderCard = cardService.getCardByCardNumber(senderCardNumber);
 //   const receivedCard = cardService.getCard ByCardNumber(receivedCardNumber);

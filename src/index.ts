@@ -32,6 +32,7 @@ const newCardExpiry: HTMLInputElement = document.querySelector("#newCardExpiry")
 const newCardPin: HTMLInputElement = document.querySelector("#newCardPin")!;
 const addCardSection: HTMLDivElement = document.querySelector(".addCardSection")!;
 const addCardBtn: HTMLButtonElement = document.querySelector(".addCard")!;
+const exitBtn: HTMLButtonElement = document.querySelector(".exit")!;
 
 const userDataBase = new UserRepository();
 const cardDataBase = new CardRepository();
@@ -164,7 +165,7 @@ function createCard(cardBase: CardRepository) {
       cardList.push(card);
     }
   }
-
+  [...cardsContainer.children].forEach((card) => card.remove());
   for (let card of cardList) {
     let cardBox = document.createElement("div");
     cardBox.classList.add("card");
@@ -181,6 +182,11 @@ function createCard(cardBase: CardRepository) {
     cardsContainer.appendChild(cardBox);
   }
 }
+
+exitBtn.addEventListener("click", () => {
+  wrapper.classList.add("disabled");
+  registrationElm.style.display = "block";
+});
 
 // function transaction(senderCardNumber: string, receivedCardNumber: string, amount: number) {
 //   const senderCard = cardService.getCardByCardNumber(senderCardNumber);
