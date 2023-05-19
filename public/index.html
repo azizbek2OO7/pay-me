@@ -17,44 +17,9 @@
   <body>
     <div class="container">
       <div class="registration">
-        <!-- sign-up -->
-        <div class="sign-up login-card">
-          <h1 class="heading signUp-text">Sign Up</h1>
-          <img
-            src="../assets/images/payme-logo.svg"
-            alt=""
-            width="120px
-        "
-          />
-
-          <form action="" class="signUp-form">
-            <div class="first-name">
-              <label for="firstName">Enter your first name</label><br />
-              <input class="firstName" type="text" name="firstName" placeholder="First name..." required /><br />
-            </div>
-
-            <div class="last-name">
-              <label for="lastName">Enter your last name</label><br />
-              <input class="lastName" type="text" name="lastName" placeholder="Last name..." required /><br />
-            </div>
-
-            <div class="phone-number">
-              <label for="phoneNumber">Enter your phone number</label><br />
-              <input class="phoneNumber" type="text" name="phoneNumber" placeholder="Phone number..." required /><br />
-            </div>
-
-            <div class="passWord">
-              <label for="password">Enter your password</label><br />
-              <input class="passWord" type="password" name="password" placeholder="Password" required />
-            </div>
-            <button class="btn">Next ></button>
-            <div class="signUp-error disabled">User already exist</div>
-          </form>
-        </div>
-
         <!-- sign-in -->
         <div class="sign-in login-card">
-          <h1 class="heading signIn-text">Sign In</h1>
+          <h1 class="heading">Sign In</h1>
           <img
             src="../assets/images/payme-logo.svg"
             alt=""
@@ -63,41 +28,82 @@
           />
 
           <form class="signIn-form">
-            <div class="phone-number">
-              <label for="phoneNumber">Enter your phone number</label><br />
-              <input class="phoneNumber" type="text" name="phoneNumber" placeholder="Phone number..." required /><br />
-            </div>
-
-            <div class="passWord">
-              <label for="password">Enter your password</label><br />
-              <input class="passWord" type="password" name="password" placeholder="Password" required />
-            </div>
-            <button class="btn">Next -></button>
-            <div class="login-error disabled">Phone number or Password wrong</div>
+            <input class="signInPhoneNumber" type="text" placeholder="Enter your phone number..." required /><br />
+            <input class="signInPassWord" type="password" placeholder="Enter your password..." required /><br />
+            <button class="btn">Sign In</button>
           </form>
+
+          <h3 class="login-text signUp-text">SignUp Now</h3>
+          <div class="signIn-error login-error disabled">Phone number or Password wrong</div>
+        </div>
+
+        <!-- sign-up -->
+        <div class="sign-up login-card disabled">
+          <h1 class="heading">Sign Up</h1>
+          <img
+            src="../assets/images/payme-logo.svg"
+            alt=""
+            width="120px
+          "
+          />
+
+          <form class="signUp-form">
+            <input class="firstName" type="text" placeholder="Enter your first name..." required /><br />
+
+            <input class="lastName" type="text" placeholder="Enter your last name..." required /><br />
+
+            <input class="phoneNumber" type="text" placeholder="Enter your phone number..." required /><br />
+
+            <input class="passWord" type="password" placeholder="Enter your password..." required /><br />
+            <button class="btn">Sign Up</button>
+          </form>
+          <h3 class="login-text signIn-text">SignIn Now</h3>
+          <div class="signUp-error login-error disabled">User already exist</div>
         </div>
       </div>
 
+      <!-- main -->
       <main class="disabled">
         <div class="navbar">
           <i class="fa-regular fa-user"></i>
-          <h3 class="fullName">Mirafzal Miradhamov</h3>
+          <h3 class="fullName">Azizbek Malikov</h3>
         </div>
 
         <div class="user-profile">
           <div class="user-cards">
-            <h1>Your Cards</h1>
-            <div class="cards"></div>
+            <h1 class="title">Your Cards</h1>
+            <div class="cards-container"></div>
           </div>
 
           <div class="user-menu">
-            <button class="menu-item myCards">My Cards</button>
-            <button class="menu-item transactions">Transactions</button>
+            <!-- <button class="menu-item myCards">My Cards</button> -->
             <button class="menu-item addCard">Add Card</button>
+            <button class="menu-item transactions">Transactions</button>
             <button class="menu-item logOut">Log Out</button>
           </div>
         </div>
       </main>
+
+      <!-- menuSections -->
+      <div class="menuSections">
+        <!-- addCardSection -->
+        <div class="addCardSection disabled">
+          <h2 class="title">Add Card</h2>
+          <form action="" class="addCardForm">
+            <input type="text" name="" id="newCardNumber" placeholder="XXXX YYYY XXXX YYYY" required /><br />
+            <input type="text" name="" id="newCardExpiry" placeholder="M/Y" required /><br />
+            <input type="text" name="" id="newCardPin" placeholder="PINKOD" required /><br />
+            <button class="btn">Add</button>
+          </form>
+        </div>
+
+        <!-- transactionsSection -->
+        <div class="transactionsSection disabled"></div>
+
+        <!-- logOutSection -->
+
+        <div class="logOutSection"></div>
+      </div>
     </div>
   </body>
   <script type="module" src="../dist/index.js"></script>

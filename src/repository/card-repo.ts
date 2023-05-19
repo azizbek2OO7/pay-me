@@ -11,7 +11,7 @@ export class CardRepository {
         throw new Error(`❌ This card(${newCard.cardNumber}) already exist`);
       }
 
-      newCard.setId(++this.counterID);
+      // newCard.setId(++this.counterID);
       this.list.push(newCard);
     }
   }

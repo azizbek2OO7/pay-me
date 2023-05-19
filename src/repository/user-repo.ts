@@ -10,7 +10,7 @@ export class UserRepository {
         throw new Error(`This user(${newUser.phoneNumber}) already exist`);
       }
 
-      newUser.setId(++this.counterID);
+      // newUser.setId(++this.counterID);
       this.list.push(newUser);
     }
   }

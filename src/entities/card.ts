@@ -9,7 +9,7 @@ export class Card extends BaseEntity {
     public expiry: string,
     public type: CARD_TYPE,
     public balance: number,
-    public ownerId: number,
+    // public ownerId: number,
     public ownerPhoneNumber: string,
     public bankName: string
   ) {
